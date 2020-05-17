@@ -184,5 +184,3 @@ export default class MenuAppBar extends React.Component {
         );
     }
 }
-
-export default MenuAppBar

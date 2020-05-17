@@ -1,26 +1,24 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import ChatMessageBox from './ChatMessageBox/ChatMessageBox'
+// Re-using my ErrorBoundary Component 
+import ErrorBoundary from 'react-error-boundary-component-fallback2';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+
+  refreshPage() {
+    window.location.reload();
+  }
+
+  render() {
+    return (
+      <ErrorBoundary headerColor="lightseagreen" errorTitle="Server Error"
+        errorText="Unable to not connect you to the Chat Room Server. Please refresh this page and try again!"
+        buttonType={['', 'primary', '', '']} buttonLabel={['', 'Refresh', '', '']} modal={true} autoScrollBodyContent={false}
+        customContentStyle={null} onClick={this.refreshPage}>
+        <ChatMessageBox />
+      </ErrorBoundary>
+    )
+  }
 }
 
 export default App;
