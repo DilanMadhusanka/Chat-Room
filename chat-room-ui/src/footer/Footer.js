@@ -1,8 +1,7 @@
-import React from 'react'
+import React, { Component } from 'react';
 import './Footer.css'
 import TextField from '@material-ui/core/TextField';
-
-class Footer extends React.Component {
+export default class Footer extends Component {
 
     constructor(props) {
         super(props);
@@ -67,5 +66,3 @@ class Footer extends React.Component {
         )
     }
 }
-
-export default Footer

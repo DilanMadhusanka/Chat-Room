@@ -1,7 +1,7 @@
 import React from 'react';
 import ChatMessageBox from './ChatMessageBox/ChatMessageBox'
 // Re-using my ErrorBoundary Component 
-import ErrorBoundary from 'react-error-boundary-component-fallback2';
+// import ErrorBoundary from 'react-error-boundary';
 
 class App extends React.Component {
 
@@ -11,12 +11,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <ErrorBoundary headerColor="lightseagreen" errorTitle="Server Error"
-        errorText="Unable to not connect you to the Chat Room Server. Please refresh this page and try again!"
-        buttonType={['', 'primary', '', '']} buttonLabel={['', 'Refresh', '', '']} modal={true} autoScrollBodyContent={false}
-        customContentStyle={null} onClick={this.refreshPage}>
-        <ChatMessageBox />
-      </ErrorBoundary>
+      <ChatMessageBox/>
     )
   }
 }

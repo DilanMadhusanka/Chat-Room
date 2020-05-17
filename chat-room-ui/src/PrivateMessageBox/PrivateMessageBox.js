@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Component } from 'react';
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
@@ -9,8 +9,7 @@ import Footer from '../footer/Footer'
 import userImage from '../userImage.png';
 
 var stompClient = null;
-
-class PrivateMessageBox extends React.Component {
+class PrivateMessageBox extends Component {
 
     constructor(props) {
         super(props);
@@ -84,46 +83,46 @@ class PrivateMessageBox extends React.Component {
     }
 
     render() {
-        return (
-            <div>
-                <Dialog
-                    open={this.props.open}
-                    onClose={this.props.handleClose}
-                    aria-labelledby="responsive-dialog-title"
-                    onEscapeKeyDown={this.props.handleClose}
-                    autoScrollBodyContent={true}
 
-                >
-                    <DialogTitle id="responsive-dialog-title">{"Send Private Message"}
-                    </DialogTitle>
-                    <DialogContent>
-                        <DialogContentText>
-                            <div> <img src={userImage} alt="Default-User" id="userImage" /></div>
-                            <div id="usernameDialogNotifications">
-                                <h5>{this.props.otherUser}</h5>
-                            </div>
-                            <div>
-                                <div><h5>Sent messages by You to {this.props.otherUser}</h5></div>
-                                {this.state.broadcastMessage.map((msg, i) =>
-                                    <div>{this.props.youser === msg.sender ? msg.message : ""}</div>
+        return <div>
 
-                                )}
+            <Dialog
+                open={this.props.open}
+                onClose={this.props.handleClose}
+                aria-labelledby="responsive-dialog-title"
+                onEscapeKeyDown={this.props.handleClose}
+                autoScrollBodyContent={true}
 
-                            </div>
-                        </DialogContentText>
-                    </DialogContent>
+            >
+                <DialogTitle id="responsive-dialog-title">{"Send Private Message"}
+                </DialogTitle>
+                <DialogContent>
+                    <DialogContentText>
+                        <div> <img src={userImage} alt="Default-User" id="userImage" /></div>
+                        <div id="usernameDialogNotifications">
+                            <h5>{this.props.otherUser}</h5>
+                        </div>
+                        <div>
+                            <div><h5>Sent messages by You to {this.props.otherUser}</h5></div>
+                            {this.state.broadcastMessage.map((msg, i) =>
+                                <div>{this.props.youser === msg.sender ? msg.message : ""}</div>
+
+                            )}
+
+                        </div>
+                    </DialogContentText>
+                </DialogContent>
 
 
-                    {this.state.showFooter ? <Footer sendMessage={this.sendMessage} privateMessage={true} connect={this.connect} /> : "Connecting to " + this.props.otherUser + "..."}
-                    <DialogActions>
-                        <Button onClick={this.props.handleClose} color="primary">
-                            Close
+                {this.state.showFooter ? <Footer sendMessage={this.sendMessage} privateMessage={true} connect={this.connect} /> : "Connecting to " + this.props.otherUser + "..."}
+                <DialogActions>
+                    <Button onClick={this.props.handleClose} color="primary">
+                        Close
                  </Button>
-                    </DialogActions>
-                </Dialog>
-            </div>
-        )
+                </DialogActions>
+            </Dialog>
+        </div>
     }
 }
 
-export default PrivateMessageBox
+export default PrivateMessageBox;

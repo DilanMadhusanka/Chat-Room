@@ -12,7 +12,7 @@ import Menu from '@material-ui/core/Menu';
 import './MenuAppBar.css'
 
 import Badge from '@material-ui/core/Badge';
-import Notifications from '../NotificationsComponent'
+import Notifications from '../NotificationComponent'
 import BellIcon from 'react-bell-icon';
 import msgImage from '../msgImage.png';
 
@@ -158,10 +158,10 @@ export default class MenuAppBar extends React.Component {
                     <div>
 
                         <Badge className="badge" badgeContent={this.props.roomNotification.length} color="secondary" onClick={this.handleOpenNotifications}>
-                            <a href="#"> <BellIcon active={this.props.bellRing} animate={this.props.bellRing} color="white" width="25px" /></a>
+                            <a href="/#"> <BellIcon active={this.props.bellRing} animate={this.props.bellRing} color="white" width="25px" /></a>
                         </Badge>
                         <Badge className="badgeMessage" badgeContent={this.state.privateMessages != null ? this.state.privateMessages.length : 0} color="secondary" onClick={this.handleOpenPrivateMessages}>
-                            <a href="#"><img src={msgImage} alt="Private messages" className="avatar" style={{ width: '48px', height: '46px' }} /></a>
+                            <a href="/#"><img src={msgImage} alt="Private messages" className="avatar" style={{ width: '48px', height: '46px' }} /></a>
                         </Badge>
 
                         <Notifications open={this.state.openNotifications} handleClose={this.handleCloseNotifications}

@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { Component } from 'react';
+
 import Menu from '../menu-app-bar/MenuAppBar'
 import Aside from '../aside/Aside'
-import Login from '../login/Login'
+import Login from '../Login/Login'
 import Footer from '../footer/Footer'
 import Paper from '@material-ui/core/Paper';
 
@@ -12,8 +13,7 @@ import userImage from '../userImage.png';
 // import backToTop from './backToTop.png';
 
 var stompClient = null;
-
-class ChatMessageBox extends React.Component {
+class ChatMessageBox extends Component {
 
     constructor(props) {
         super(props);
@@ -190,8 +190,8 @@ class ChatMessageBox extends React.Component {
         );
 
     }
-
     render() {
+
         return (
             <div>
                 {this.state.channelConnected ?
@@ -263,6 +263,7 @@ class ChatMessageBox extends React.Component {
             </div>
         )
     }
+
 }
 
-export default ChatMessageBox
+export default ChatMessageBox;
