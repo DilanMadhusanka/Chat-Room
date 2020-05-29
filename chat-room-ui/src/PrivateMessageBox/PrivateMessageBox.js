@@ -113,7 +113,7 @@ class PrivateMessageBox extends Component {
                     </DialogContentText>
                 </DialogContent>
 
-
+                {/* connect prop is not wanted */}
                 {this.state.showFooter ? <Footer sendMessage={this.sendMessage} privateMessage={true} connect={this.connect} /> : "Connecting to " + this.props.otherUser + "..."}
                 <DialogActions>
                     <Button onClick={this.props.handleClose} color="primary">

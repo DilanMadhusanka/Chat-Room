@@ -62,6 +62,7 @@ export default class MenuAppBar extends React.Component {
         stompClient.send('/app/addPrivateUser', {}, JSON.stringify({ sender: this.props.username, type: 'JOIN' }))
     }
 
+    // This is not wanted
     sendMessage = (type, value) => {
 
         this.setState({
